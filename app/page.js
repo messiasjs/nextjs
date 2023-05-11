@@ -32,17 +32,10 @@ function MessageTable({ messages, filterText}) {
   const rows = [];
   let lastCategory = null;
   console.log("Aqui -------------0 "+messages);
-  console.log("Aqui -------------1 "+messages.nome);
-  console.log("Aqui -------------2 "+messages.autor);
-  console.log("Aqui -------------3 "+messages.data);
-  console.log("Aqui -------------4 "+messages['nome']);
-  console.log("Aqui -------------5 "+messages['name']);
-  console.log("Aqui -------------6 "+messages[0]);
- /* console.log("Aqui -------------7 "+messages[0].nome);
-  console.log("Aqui -------------8 "+messages[0].name);
-  console.log("Aqui -------------9 "+messages[0]['name']);
-  console.log("Aqui -------------10 "+messages[0]['nome']);*/
-
+  console.log("Aqui -------------1 "+typeof(messages));
+  console.log("Aqui -------------2 "+messages[0]);
+  console.log("Aqui -------------3 "+typeof(messages[0]));
+  //console.log("Aqui -------------7 "+messages[0].name);
   messages.forEach((message) => {
     if (message.nome.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
