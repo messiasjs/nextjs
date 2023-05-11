@@ -38,10 +38,10 @@ function MessageTable({ messages, filterText}) {
   console.log("Aqui -------------4 "+messages['nome']);
   console.log("Aqui -------------5 "+messages['name']);
   console.log("Aqui -------------6 "+messages[0]);
-  console.log("Aqui -------------7 "+messages[0].nome);
+ /* console.log("Aqui -------------7 "+messages[0].nome);
   console.log("Aqui -------------8 "+messages[0].name);
   console.log("Aqui -------------9 "+messages[0]['name']);
-  console.log("Aqui -------------10 "+messages[0]['n0me']);
+  console.log("Aqui -------------10 "+messages[0]['nome']);*/
 
   messages.forEach((message) => {
     if (message.nome.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
