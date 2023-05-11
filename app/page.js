@@ -31,11 +31,14 @@ function SearchBar({filterText,onFilterTextChange}) {
 function MessageTable({ messages, filterText}) {
   const rows = [];
   let lastCategory = null;
-  console.log("Aqui -------------"+messages);
-  console.log(typeof(messages));
+  console.log("Aqui -------------"+messages.nome);
+  console.log("Aqui -------------"+messages.autor);
+  console.log("Aqui -------------"+messages.data);
+  console.log("Aqui -------------"+messages['nome']);
+  console.log("Aqui -------------"+messages['name']);
 
   messages.forEach((message) => {
-    if (message.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+    if (message.nome.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
     }
     
