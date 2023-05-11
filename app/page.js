@@ -7,6 +7,62 @@ import { useState } from 'react';
 
 
 //Coloque o código dos demais componentes aqui...
+function FilterableMessageTable({ products }) {
+  const [filterText, setFilterText] = useState('');
+  //const [inStockOnly, setInStockOnly] = useState(false);
+
+  return (
+    <div>
+      <SearchBar filterText={filterText} onFilterTextChange={setFilterText}/>
+      <MessageTable products={products} filterText={filterText} />
+    </div>
+  ); 
+}
+
+function SearchBar({filterText,onFilterTextChange}) {
+  return (
+    <form>
+      <input type="text" value={filterText} placeholder="Search..." 
+      onChange={(e) => onFilterTextChange(e.target.value)}/>
+    </form>
+  );
+}
+
+function MessageTable({ products, filterText}) {
+  const rows = [];
+  let lastCategory = null;
+  products.forEach((product) => {
+    if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      return;
+    }
+    
+    /*if (product.category !== lastCategory) {
+      rows.push(
+        <ProductCategoryRow
+          category={product.category}
+          key={product.category} />
+      );
+    }*/
+    rows.push(
+      <ProductRow
+        product={product}
+        key={product.name} />
+    );
+    //lastCategory = product.category;
+  });
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
+}
 
 export default function Home() {
     
@@ -24,3 +80,4 @@ export default function Home() {
       </main>
     )
 }
+
