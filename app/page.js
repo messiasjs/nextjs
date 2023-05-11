@@ -31,6 +31,7 @@ function SearchBar({filterText,onFilterTextChange}) {
 function MessageTable({ products, filterText}) {
   const rows = [];
   let lastCategory = null;
+  console.log("Aqui -------------"+products);
   products.forEach((product) => {
     if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
@@ -87,7 +88,7 @@ export default function Home() {
     .then(data => {
         setBlogMessages(data);
     });
-    
+    console.log(blogMessages);
     return (
       <main className={styles.main}>
         <FilterableMessageTable messages={blogMessages} />
