@@ -87,10 +87,11 @@ export default function Home() {
   
   fetch(' https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec')
     .then(response => response.json())
-    .then(data => {
-        setBlogMessages(data);
+    .then(response => {
+        setBlogMessages(response);
     });
-    console.log(blogMessages);
+    console.log("Testeeee", blogMessages);
+
     return (
       <main className={styles.main}>
         <FilterableMessageTable messages={blogMessages} />
