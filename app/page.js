@@ -94,7 +94,9 @@ export default function Home() {
         setBlogMessages(data);
     });
     console.log("RESPONSE ",typeof(data));
-    console.log("BLOG ", typeof(blogMessages));
+    console.log("BLOG ", blogMessages[0].date);
+    console.log("BLOG ", blogMessages[0].data);
+    console.log("BLOG ", blogMessages[0].name);
     return (
       <main className={styles.main}>
         <FilterableMessageTable messages={blogMessages} />
