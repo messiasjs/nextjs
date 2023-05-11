@@ -31,13 +31,13 @@ function SearchBar({filterText,onFilterTextChange}) {
 function MessageTable({ messages, filterText}) {
   const rows = [];
   let lastCategory = null;
-  console.log("Aqui -------------0 "+messages);
+  /*console.log("Aqui -------------0 "+messages);
   console.log("Aqui -------------1 "+typeof(messages));
   console.log("Aqui -------------2 "+messages[0]);
-  console.log("Aqui -------------3 "+typeof(messages[0]));
+  console.log("Aqui -------------3 "+typeof(messages[0]));*/
   //console.log("Aqui -------------7 "+messages[0].name);
   messages.forEach((message) => {
-    if (message.nome.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+    if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
     }
     
@@ -51,7 +51,7 @@ function MessageTable({ messages, filterText}) {
     rows.push(
       <MessageRow
         message={message}
-        key={message.name} />
+        key={message[0]} />
     );
     //lastCategory = product.category;
   });
@@ -60,9 +60,9 @@ function MessageTable({ messages, filterText}) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Author</th>
-          <th>Date</th>
+          <th>Nome</th>
+          <th>Autor</th>
+          <th>Data</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -78,8 +78,9 @@ function MessageRow({ message }) {
 
   return (
     <tr>
-      <td>{message.name}</td>
-      <td>{message.author}</td>
+      <td>{message[0]}</td>
+      <td>{message[1]}</td>
+      <td>{message[2]}</td>
     </tr>
   );
 }
@@ -93,10 +94,7 @@ export default function Home() {
     .then(data => {
         setBlogMessages(data);
     });
-    console.log("RESPONSE ",typeof(data));
-    console.log("BLOG ", blogMessages[0]);
-    console.log("BLOG ", blogMessages[1]);
-    console.log("BLOG ", blogMessages[2]);
+    
     return (
       <main className={styles.main}>
         <FilterableMessageTable messages={blogMessages} />
