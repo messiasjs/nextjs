@@ -14,7 +14,7 @@ function FilterableMessageTable({ messages }) {
   return (
     <div>
       <SearchBar filterText={filterText} onFilterTextChange={setFilterText}/>
-      <MessageTable products={messages} filterText={filterText} />
+      <MessageTable messages={messages} filterText={filterText} />
     </div>
   ); 
 }
@@ -47,8 +47,8 @@ function MessageTable({ messages, filterText}) {
       );
     }*/
     rows.push(
-      <ProductRow
-        product={message}
+      <MessageRow
+        message={message}
         key={message.name} />
     );
     //lastCategory = product.category;
@@ -68,7 +68,7 @@ function MessageTable({ messages, filterText}) {
   );
 }
 
-function ProductRow({ message }) {
+function MessageRow({ message }) {
   /*const name = product.stocked ? product.name :
     <span style={{ color: 'red' }}>
       {product.name}
