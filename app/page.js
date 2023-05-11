@@ -7,14 +7,14 @@ import { useState } from 'react';
 
 
 //Coloque o código dos demais componentes aqui...
-function FilterableMessageTable({ products }) {
+function FilterableMessageTable({ messages }) {
   const [filterText, setFilterText] = useState('');
   //const [inStockOnly, setInStockOnly] = useState(false);
 
   return (
     <div>
       <SearchBar filterText={filterText} onFilterTextChange={setFilterText}/>
-      <MessageTable products={products} filterText={filterText} />
+      <MessageTable products={messages} filterText={filterText} />
     </div>
   ); 
 }
@@ -28,38 +28,39 @@ function SearchBar({filterText,onFilterTextChange}) {
   );
 }
 
-function MessageTable({ products, filterText}) {
+function MessageTable({ messages, filterText}) {
   const rows = [];
   let lastCategory = null;
-  console.log("Aqui -------------"+products);
-  console.log(typeof(products));
+  console.log("Aqui -------------"+messages);
+  console.log(typeof(messages));
 
-  /*products.forEach((product) => {
-    if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+  messages.forEach((message) => {
+    if (message.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
     }
     
-    /*if (product.category !== lastCategory) {
+    /*if (messages.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow
           category={product.category}
           key={product.category} />
       );
-    }
+    }*/
     rows.push(
       <ProductRow
-        product={product}
-        key={product.name} />
+        product={message}
+        key={message.name} />
     );
     //lastCategory = product.category;
-  });*/
+  });
 
   return (
     <table>
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          <th>Author</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -67,7 +68,7 @@ function MessageTable({ products, filterText}) {
   );
 }
 
-function ProductRow({ product }) {
+function ProductRow({ message }) {
   /*const name = product.stocked ? product.name :
     <span style={{ color: 'red' }}>
       {product.name}
@@ -75,8 +76,8 @@ function ProductRow({ product }) {
 
   return (
     <tr>
-      <td>{product.name}</td>
-      <td>{product.price}</td>
+      <td>{message.name}</td>
+      <td>{message.author}</td>
     </tr>
   );
 }
@@ -90,7 +91,6 @@ export default function Home() {
     .then(response => {
         setBlogMessages(response);
     });
-    console.log("Testeeee", blogMessages);
 
     return (
       <main className={styles.main}>
