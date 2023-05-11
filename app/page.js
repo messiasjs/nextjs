@@ -29,9 +29,11 @@ function SearchBar({filterText,onFilterTextChange}) {
 }
 
 function MessageTable({ products, filterText}) {
-  const rows = products;
+  const rows = [];
   let lastCategory = null;
-
+  console.log("Aqui -------------"+products);
+  console.log(type(products));
+  
   /*products.forEach((product) => {
     if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
