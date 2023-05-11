@@ -90,10 +90,10 @@ export default function Home() {
   
   fetch(' https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec')
     .then(response => response.json())
-    .then(response => {
-        setBlogMessages(response);
+    .then(data => {
+        setBlogMessages(data);
     });
-    console.log("RESPONSE ",typeof(response));
+    console.log("RESPONSE ",typeof(data));
     console.log("BLOG ", typeof(blogMessages));
     return (
       <main className={styles.main}>
