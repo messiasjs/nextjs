@@ -80,13 +80,13 @@ function ProductRow({ product }) {
 
 export default function Home() {
     
-  /*const [blogMessages, setBlogMessages] = useState([]);
+  const [blogMessages, setBlogMessages] = useState([]);
   
-  fetch('https://...')
+  fetch(' https://script.google.com/macros/s/AKfycbzBn3sALe1rYjz7Ze-Ik7q9TEVP0I2V3XX7GNcecWP8NvCzGt4yO_RT1OlQp09TE9cU/exec')
     .then(response => response.json())
     .then(data => {
         setBlogMessages(data);
-    });*/
+    });
     
     return (
       <main className={styles.main}>
