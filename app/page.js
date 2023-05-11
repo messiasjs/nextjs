@@ -32,8 +32,8 @@ function MessageTable({ products, filterText}) {
   const rows = [];
   let lastCategory = null;
   console.log("Aqui -------------"+products);
-  console.log(type(products));
-  
+  console.log(typeof(products));
+
   /*products.forEach((product) => {
     if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
