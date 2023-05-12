@@ -71,7 +71,7 @@ function MessageRow({ message }) {
       {product.name}
     </span>;*/
 
-  const newDate = new Date(Date.UTC(message[2]));
+  const newDate = new Date(message[2]);
   console.log(newDate);
   var formatDate = newDate.toLocaleString('pt-BR', { timezone: 'UTC' });
   
