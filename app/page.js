@@ -72,8 +72,8 @@ function MessageRow({ message }) {
     </span>;*/
 
   const newDate = new Date(Date.UTC(message[2]));
-  var formatDate = novaData.toLocaleString('pt-BR', { timezone: 'UTC' });
-  console.log(novaData.toLocaleString('pt-BR', { timezone: 'UTC' }));
+  var formatDate = newDate.toLocaleString('pt-BR', { timezone: 'UTC' });
+  console.log(newDate.toLocaleString('pt-BR', { timezone: 'UTC' }));
   return (
     <tr>
       <td>{message[1]}</td>
