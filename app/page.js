@@ -9,7 +9,6 @@ import { useState } from 'react';
 //Coloque o código dos demais componentes aqui...
 function FilterableMessageTable({ messages }) {
   const [filterText, setFilterText] = useState('');
-  //const [inStockOnly, setInStockOnly] = useState(false);
 
   return (
     <div>
@@ -23,7 +22,7 @@ function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
       <label>Procure uma mensagem:</label>
-      <input type="text" value={filterText} placeholder="Search..." 
+      <input width="100%" type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
   );
@@ -34,6 +33,9 @@ function MessageTable({ messages, filterText}) {
   let lastCategory = null;
   console.log(filterText);
   messages.forEach((message) => {
+    console.log('--------1', message[0].toLowerCase());
+    console.log('--------2',filterText);
+    console.log(('-------3', message[0].toLowerCase().indexOf(filterText.toLowerCase())));
     /*if(message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
     }*/
