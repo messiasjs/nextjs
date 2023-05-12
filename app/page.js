@@ -22,6 +22,7 @@ function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
       <label>Procure uma mensagem:</label>
+      {' '}
       <input width="100%" type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
@@ -36,9 +37,10 @@ function MessageTable({ messages, filterText}) {
     console.log('--------1', message[0].toLowerCase());
     console.log('--------2',filterText);
     console.log(('-------3', message[0].toLowerCase().indexOf(filterText.toLowerCase())));
-    /*if(message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+    if(message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      console.log("AQUI _____________________________________");
       return;
-    }*/
+    }
     //console.log(filterText);
     /*if (messages.category !== lastCategory) {
       rows.push(
