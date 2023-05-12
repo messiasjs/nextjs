@@ -34,9 +34,9 @@ function MessageTable({ messages, filterText}) {
   let lastCategory = null;
   console.log(filterText);
   messages.forEach((message) => {
-    if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+    /*if(message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
-    }
+    }*/
     //console.log(filterText);
     /*if (messages.category !== lastCategory) {
       rows.push(
