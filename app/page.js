@@ -29,18 +29,36 @@ function SearchBar({filterText, onFilterTextChange}) {
   );
 }
 
+/*function s(e) {
+  let {messages: t, filterText: n} = e
+    , i = [];
+  return t.forEach(e=>{
+      if (e[0] && "string" == typeof e[0] && e[0].toLowerCase().indexOf(n.toLowerCase()) >= 0 || e[1] && "string" == typeof e[1] && e[1].toLowerCase().indexOf(n.toLowerCase()) >= 0) {
+          let t = new Date(e[2])
+            , n = t.toLocaleDateString("en-GB")
+            , o = t.toLocaleTimeString("en-GB", {hour12: !1}), a = "".concat(n, " ").concat(o);
+          i.push((0,
+          r.jsx)(u, {
+              date: a,
+              author: e[1],
+              message: e[0]
+          }, e.join()))
+      }
+  }
+*/
 function MessageTable({ messages, filterText}) {
   const rows = [];
   let lastCategory = null;
   console.log(filterText);
   messages.forEach((message) => {
-    console.log('--------1', message[0].toLowerCase());
+    /*console.log('--------1', message[0].toLowerCase());
     console.log('--------2',filterText);
     console.log(('-------3', message[0].toLowerCase().indexOf(filterText.toLowerCase())));
+
     if(message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       console.log("AQUI _____________________________________");
       return;
-    }
+    }*/
     //console.log(filterText);
     /*if (messages.category !== lastCategory) {
       rows.push(
@@ -49,9 +67,12 @@ function MessageTable({ messages, filterText}) {
           key={product.category} />
       );
     }*/
-    rows.push(
-      <MessageRow message={message}/>
-    );
+    if (message[0] && "string" == typeof(message[0]) && message[0].toLowerCase().indexOf(filterText.toLowerCase()) >= 0 || message[1] && "string" == typeof(message[1]) && message[1].toLowerCase().indexOf(filterText.toLowerCase()) >= 0) {
+
+      rows.push(
+        <MessageRow message={message}/>
+      );
+    }
     //lastCategory = product.category;
   });
 
