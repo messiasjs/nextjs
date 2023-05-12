@@ -23,7 +23,7 @@ function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
       <label>Procure uma mensagem:</label>
-      <input  style="width:100%" type="text" value={filterText} placeholder="Search..." 
+      <input type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
   );
@@ -73,7 +73,7 @@ function MessageRow({ message }) {
 
   const newDate = new Date(Date.UTC(message[2]));
   var formatDate = novaData.toLocaleString('pt-BR', { timezone: 'UTC' });
-  //console.log(novaData.toLocaleString('pt-BR', { timezone: 'UTC' }));
+  console.log(novaData.toLocaleString('pt-BR', { timezone: 'UTC' }));
   return (
     <tr>
       <td>{message[1]}</td>
