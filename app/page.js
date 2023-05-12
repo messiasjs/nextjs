@@ -95,16 +95,19 @@ function MessageRow({ message }) {
     <span style={{ color: 'red' }}>
       {product.name}
     </span>;*/
-
-  const newDate = new Date(message[2]);
-  console.log(newDate);
+  let newDate = new Date(e[2]), n =newDate.toLocaleDateString("en-GB"), o = newDate.toLocaleTimeString("en-GB", {hour12: !1}), a = "".concat(n, " ").concat(o);
+  //const newDate = new Date(message[2]);
+  //console.log(newDate);
+  console.log(n);
+  console.log(o);
+  console.log(a);
   var formatDate = newDate.toLocaleString('pt-BR', { timezone: 'UTC' });
   
   return (
     <tr>
       <td>{message[1]}</td>
       <td>{message[0]}</td>
-      <td>{formatDate}</td>
+      <td>{a}</td>
     </tr>
   );
 }
