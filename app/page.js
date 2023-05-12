@@ -19,7 +19,7 @@ function FilterableMessageTable({ messages }) {
   ); 
 }
 
-function SearchBar({filterText,onFilterTextChange}) {
+function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
       <input type="text" value={filterText} placeholder="Search..." 
@@ -37,10 +37,10 @@ function MessageTable({ messages, filterText}) {
   console.log("Aqui -------------3 "+typeof(messages[0]));*/
   //console.log("Aqui -------------7 "+messages[0].name);
   messages.forEach((message) => {
-    if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-      return;
-    }
-    
+    //if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+    //  return;
+    //}
+    //console.log(filterText);
     /*if (messages.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow
@@ -49,9 +49,7 @@ function MessageTable({ messages, filterText}) {
       );
     }*/
     rows.push(
-      <MessageRow
-        message={message}
-        key={message[0]} />
+      <MessageRow message={message}/>
     );
     //lastCategory = product.category;
   });
