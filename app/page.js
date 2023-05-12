@@ -22,8 +22,8 @@ function FilterableMessageTable({ messages }) {
 function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
-      Procure uma mensagem:
-      <input type="text" value={filterText} placeholder="Search..." 
+      <label>Procure uma mensagem:</label>
+      <input  style="width:100%" type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
   );
@@ -34,9 +34,9 @@ function MessageTable({ messages, filterText}) {
   let lastCategory = null;
   console.log(filterText);
   messages.forEach((message) => {
-    //if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-    //  return;
-    //}
+    if (message[0].toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      return;
+    }
     //console.log(filterText);
     /*if (messages.category !== lastCategory) {
       rows.push(
@@ -71,11 +71,14 @@ function MessageRow({ message }) {
       {product.name}
     </span>;*/
 
+  const newDate = new Date(Date.UTC(message[2]));
+  var formatDate = novaData.toLocaleString('pt-BR', { timezone: 'UTC' });
+  //console.log(novaData.toLocaleString('pt-BR', { timezone: 'UTC' }));
   return (
     <tr>
       <td>{message[1]}</td>
       <td>{message[0]}</td>
-      <td>{message[2]}</td>
+      <td>{formatDate}</td>
     </tr>
   );
 }
