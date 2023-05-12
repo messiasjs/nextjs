@@ -95,7 +95,7 @@ function MessageRow({ message }) {
     <span style={{ color: 'red' }}>
       {product.name}
     </span>;*/
-  let newDate = new Date(e[2]), n =newDate.toLocaleDateString("en-GB"), o = newDate.toLocaleTimeString("en-GB", {hour12: !1}), a = "".concat(n, " ").concat(o);
+  let newDate = new Date(message[2]), n =newDate.toLocaleDateString("en-GB"), o = newDate.toLocaleTimeString("en-GB", {hour12: !1}), a = "".concat(n, " ").concat(o);
   //const newDate = new Date(message[2]);
   //console.log(newDate);
   console.log(n);
