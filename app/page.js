@@ -21,8 +21,8 @@ function SearchBar({filterText, onFilterTextChange}) {
   return (
     <form>
       <label>Procure uma mensagem:</label>
-      <br></br>
-      <input width="100%" type="text" value={filterText} placeholder="Search..." 
+      
+      <input style="width:100%" type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
   );
