@@ -19,10 +19,10 @@ function FilterableMessageTable({ messages }) {
 
 function SearchBar({filterText, onFilterTextChange}) {
   return (
-    <form>
+    <form >
       <label>Procure uma mensagem:</label>
       
-      <input width="100%" type="text" value={filterText} placeholder="Search..." 
+      <input style="width:100%;" type="text" value={filterText} placeholder="Search..." 
       onChange={(e) => onFilterTextChange(e.target.value)}/>
     </form>
   );
